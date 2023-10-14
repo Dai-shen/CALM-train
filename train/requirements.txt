@@ -1,0 +1,11 @@
+accelerate
+bitsandbytes
+datasets
+fire
+huggingface_hub
+torch
+tqdm
+transformers
+deepspeed
+gradio
+xformers

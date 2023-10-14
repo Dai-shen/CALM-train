@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Generation</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Generate Form</legend>
+        <form action="/generate" method="post">
+            <label for="generate_input_text">Input Text:</label><br>
+            <input type="text" id="generate_input_text" name="input_text" value="Once upon a time"><br>
+            <label for="temperature">Temperature:</label><br>
+            <input type="number" id="temperature" name="temperature" step="0.01" min="0" max="1" value="0.35"><br>
+            <label for="top_p">Top P:</label><br>
+            <input type="number" id="top_p" name="top_p" step="0.01" min="0" max="1" value="0.85"><br>
+            <label for="top_k">Top K:</label><br>
+            <input type="number" id="top_k" name="top_k" value="30"><br>
+            <label for="num_beams">Num Beams:</label><br>
+            <input type="number" id="num_beams" name="num_beams" value="1"><br>
+            <label for="max_new_tokens">Max New Tokens:</label><br>
+            <input type="number" id="max_new_tokens" name="max_new_tokens" value="200"><br>
+            <label for="min_new_tokens">Min New Tokens:</label><br>
+            <input type="number" id="min_new_tokens" name="min_new_tokens" value="1"><br>
+            <label for="repetition_penalty">Repetition Penalty:</label><br>
+            <input type="number" id="repetition_penalty" name="repetition_penalty" step="0.1" value="1.2"><br>
+            <label for="do_sample">Do Sample:</label><br>
+            <input type="checkbox" id="do_sample" name="do_sample" checked><br>
+            <input type="submit" value="Generate">
+        </form>
+    </fieldset>
+    
+    <fieldset>
+        <legend>Inference Form</legend>
+        <form action="/inference" method="post">
+            <label for="inference_input_text">Input Text:</label><br>
+            <input type="text" id="inference_input_text" name="input_text" value="Once upon a time"><br>
+            <input type="submit" value="Inference">
+        </form>
+    </fieldset>
+</body>
+</html>

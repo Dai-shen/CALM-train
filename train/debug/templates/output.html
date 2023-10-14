@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Token Probabilities</title>
+    <meta charset="UTF-8">
+    <style>
+        .token {
+            position: relative;
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .token:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .tooltip {
+            visibility: hidden;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            padding: 5px 0;
+            border-radius: 6px;
+
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -22.5px;
+
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+
+        .color-bar {
+            position: relative;
+            height: 20px;
+            background: linear-gradient(to right, rgb(255,0,0), rgb(0,255,0));
+            margin-top: 20px;
+        }
+
+        .prob-labels {
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            width: 100%;
+            top: 30px;  /* this positions the labels 30px below the top of the color-bar */
+        }
+
+        .prob-label {
+            position: relative;
+        }
+
+        .loss-container {
+            margin-top: 40px;  /* adjust this value as needed */
+        }
+    </style>
+</head>
+<body style="padding-top: 50px;">
+    {% for item in tokens_with_probs %}
+        <span class="token" data-prob="{{ item.prob }}">
+            {{ item.token }}
+            <span class="tooltip">{{ '%.2f'|format(item.prob*100) }}%</span>
+        </span>
+    {% endfor %}
+
+    <div class="color-bar">
+        <div class="prob-labels">
+            {% for i in range(11) %}
+            <span class="prob-label">{{ i / 10 }}</span>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="loss-container">
+        Loss: {{ loss }}
+    </div>
+
+    <script>
+        window.onload = function() {
+            var tokens = document.querySelectorAll('.token');
+            tokens.forEach(function(token) {
+                var prob = token.getAttribute('data-prob');
+                var red = (1 - prob) * 255;
+                var green = prob * 255;
+                token.style.color = 'rgb(' + red + ', ' + green + ', 0)';
+            });
+        }
+    </script>
+</body>
+</html>
