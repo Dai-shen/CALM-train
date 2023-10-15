@@ -3,6 +3,18 @@
 - Due to licensing restrictions on [LLaMA](https://huggingface.co/meta-llama/Llama-2-7b-chat-hf) weights, the model cannot be used for commercial purposes. Please adhere strictly to LLaMA's usage policy.
 - Considering the limitations of LLaMA's license, we cannot directly distribute the complete model weights. Here, we are only releasing the LoRA weights of [CALM-7B](https://huggingface.co/daishen/CALM-7B).
 
+## Content
+
+- [CALM: Credit and Risk Assessment Large Language Model](#calm-credit-and-risk-assessment-large-language-model)
+  - [Content](#content)
+  - [1. Preparing the environment](#1-preparing-the-environment)
+  - [2. Run](#2-run)
+    - [2.1 Download data](#21-download-data)
+      - [2.1.1 Convert data format](#211-convert-data-format)
+    - [2.2 Model training](#22-model-training)
+      - [2.2.1 LoRA](#221-lora)
+      - [2.2.2 Merge Model with LORA](#222-merge-model-with-lora)
+
 ## 1. Preparing the environment
 
 Creating the environment using Conda, followed by installing the required packages using pip.
