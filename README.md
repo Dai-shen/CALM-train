@@ -100,7 +100,7 @@ nohup torchrun --nproc_per_node 2 src/entry_point/sft_train.py \
     > ${log_dir}/train.log 2>&1 &
 ```
 
-**参数说明**
+**Parameters**
 
 * use_lora: Training using LoRA
 * use_int8_training: Training with 8-bit quantization, which significantly reduces memory usage
@@ -109,7 +109,7 @@ nohup torchrun --nproc_per_node 2 src/entry_point/sft_train.py \
 
 **Note:** Please be aware that you can only choose between "`use_int8_training`" and "`deepspeed`"; they cannot be used simultaneously.
 
-output_dir目录的文件结构如下：
+The structure of the **output_dir**:
 
 ```
 output_dir/
